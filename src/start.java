@@ -26,11 +26,29 @@ public class start {
         Discipline disc4 = new Discipline("Web Development", "Computer Science");
         Discipline disc5 = new Discipline("Differential Equations", "Mathematics");
 
-        Room room1 = new Room("C101", 100, "FSEGA");
-        Room room2 = new Room("6/II", 100, "Centru");
-        Room room3 = new Room("A320", 100, "Avram Iancu");
-        Room room4 = new Room("A311", 100, "Avram Iancu");
-        Room room5 = new Room("C531", 100, "FSEGA");
+        ArrayList<String> possible_activities1 = new ArrayList<>();
+        ArrayList<String> possible_activities2 = new ArrayList<>();
+        ArrayList<String> possible_activities3 = new ArrayList<>();
+        ArrayList<String> possible_activities4 = new ArrayList<>();
+        ArrayList<String> possible_activities5 = new ArrayList<>();
+
+        possible_activities1.add("lab");
+        possible_activities1.add("seminar");
+        possible_activities1.add("lecture");
+        possible_activities2.add("laboratory");
+        possible_activities2.add("seminar");
+        possible_activities3.add("lecture");
+        possible_activities4.add("lab");
+        possible_activities4.add("seminar");
+        possible_activities4.add("lecture");
+        possible_activities5.add("laboratory");
+        possible_activities5.add("seminar");
+
+        Room room1 = new Room("C101", 100, "FSEGA", possible_activities1);
+        Room room2 = new Room("6/II", 100, "Centru", possible_activities2);
+        Room room3 = new Room("A320", 100, "Avram Iancu", possible_activities3);
+        Room room4 = new Room("A311", 100, "Avram Iancu", possible_activities4);
+        Room room5 = new Room("C531", 100, "FSEGA", possible_activities5);
 
         Activity act1 = new Activity(disc2, "laboratory", teach2, room4);
         Activity act2 = new Activity(disc4, "lab", teach3, room1);

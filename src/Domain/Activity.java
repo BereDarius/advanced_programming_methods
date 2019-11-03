@@ -24,6 +24,9 @@ public class Activity {
         activityTypes.add("lecture");
         activityTypes.add("lab");
         this.discipline = discipline;
+        if (!room.getActivityTypes().contains(activityType)) {
+            throw new ActivityException("The activity type must be contained in the room's possible activity types...");
+        }
         if (activityTypes.contains(activityType.toLowerCase())) {
             this.activityType = activityType;
         } else {

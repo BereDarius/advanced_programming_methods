@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e12f92e0-75cf-4d4a-b6ba-54fe6233e1bc" name="Default Changelist" comment="" />
+    <list default="true" id="e12f92e0-75cf-4d4a-b6ba-54fe6233e1bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Domain/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Domain/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Domain/Teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Domain/Teacher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Repos/RoomRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Repos/RoomRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/UI/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/UI/UI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/start.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/start.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repos/RoomRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repos/RoomRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/ActivityRepoTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/ActivityTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/DisciplineRepoTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/DisciplineTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/FormationRepoTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/FormationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/RoomRepoTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/RoomTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/TeacherRepoTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/TeacherTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/start.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="183" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Lab1" />
@@ -15,12 +45,39 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Rv5lTPLEdZd3LnAvu5ckc5gQAf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Tests" />
+      <recent name="Domain" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Tests" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -34,7 +91,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.start">
+  <component name="RunManager" selected="JUnit.ActivityTest">
     <configuration name="ActivityTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Tests.ActivityTests" />
       <module name="Lab1" />
@@ -55,10 +112,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ActivityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ActivityTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.start" />
+        <item itemvalue="JUnit.ActivityTest" />
         <item itemvalue="Application.ActivityTests" />
+        <item itemvalue="Application.start" />
       </list>
     </recent_temporary>
   </component>
@@ -74,5 +147,21 @@
       <updated>1570534879167</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Lab1$ActivityTest.ic" NAME="ActivityTest Coverage Results" MODIFIED="1572817380980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -326,7 +326,31 @@ public class UI {
         String number = readString("Please enter the room's number: ");
         int availableSeats = readInt("Please enter the room's number of available seats: ");
         String building = readString("Please enter the room's building: ");
-        return new Room(number, availableSeats, building);
+        ArrayList<String> activities = new ArrayList<>();
+        activities.add("lab");
+        activities.add("laboratory");
+        activities.add("seminar");
+        activities.add("lecture");
+        String activity_type;
+        String answer;
+        ArrayList<String> possible_activities = new ArrayList<>();
+        do {
+            for (String activity : activities) {
+                System.out.println(activity + ";");
+            }
+            activity_type = readString("Please choose an activity type to add to the room: ");
+            if (activities.contains(activity_type.toLowerCase())) {
+                possible_activities.add(activity_type);
+                if (activity_type.toLowerCase().equals("lab")) {
+                    activities.remove("laboratory");
+                } else if (activity_type.toLowerCase().equals("laboratory")) {
+                    activities.remove("lab");
+                }
+                activities.remove(activity_type.toLowerCase());
+            }
+            answer = readString("Would you like to add another activity type? [Yes / No] ");
+        } while (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"));
+        return new Room(number, availableSeats, building, possible_activities);
     }
 
     /*
@@ -434,9 +458,16 @@ public class UI {
         Formation subgroup = null;
         ArrayList<Activity> addActivities = new ArrayList<>();
         ArrayList<Activity> removeActivities = new ArrayList<>();
+        ArrayList<String> activities = new ArrayList<>();
+        String activity_type;
+        ArrayList<String> possible_activities = new ArrayList<>();
 
         int command = readInt("Please enter a command: ");
         do {
+            activities.add("lab");
+            activities.add("laboratory");
+            activities.add("seminar");
+            activities.add("lecture");
             switch(command) {
                 case 0:
                     System.out.println("Bye!!");
@@ -577,6 +608,8 @@ public class UI {
                                 }
                                 this.ctrl.updateFormation(this.ctrl.getAllFormations().getAll().get(index), name, addActivities, removeActivities, subgroup);
                                 printUpdateFormation();
+                                addActivities.clear();
+                                removeActivities.clear();
                                 break;
                             case 4:
                                 name = readString("Please enter the formation's name: ");
@@ -605,6 +638,8 @@ public class UI {
                                 }
                                 this.ctrl.updateFormationByName(name, addActivities, removeActivities, subgroup);
                                 printUpdateFormation();
+                                addActivities.clear();
+                                removeActivities.clear();
                                 break;
                             case 5:
                                 index = readInt("Please enter the index of the formation: ");
@@ -671,8 +706,26 @@ public class UI {
                                 if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y")) {
                                     building = readString("Please enter the room's new building name: ");
                                 }
-                                this.ctrl.updateRoom(index, name, seats, building);
+                                System.out.println("You will need to choose all possible activity types for this room again.");
+                                do {
+                                    for (String activity : activities) {
+                                        System.out.println(activity + ";");
+                                    }
+                                    activity_type = readString("Please choose an activity type to add to the room: ");
+                                    if (activities.contains(activity_type.toLowerCase())) {
+                                        possible_activities.add(activity_type);
+                                        if (activity_type.toLowerCase().equals("lab")) {
+                                            activities.remove("laboratory");
+                                        } else if (activity_type.toLowerCase().equals("laboratory")) {
+                                            activities.remove("lab");
+                                        }
+                                        activities.remove(activity_type.toLowerCase());
+                                    }
+                                    answer = readString("Would you like to add another activity type? [Yes / No] ");
+                                } while (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"));
+                                this.ctrl.updateRoom(index, name, seats, building, possible_activities);
                                 printUpdateRoom();
+                                activities.clear();
                                 break;
                             case 6:
                                 name = readString("Please enter the room's number: ");
@@ -686,9 +739,27 @@ public class UI {
                                 if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y")) {
                                     building = readString("Please enter the room's new building name: ");
                                 }
-                                if (this.ctrl.updateRoomByNum(name, seats, building)) {
+                                System.out.println("You will need to choose all possible activity types for this room again.");
+                                do {
+                                    for (String activity : activities) {
+                                        System.out.println(activity + ";");
+                                    }
+                                    activity_type = readString("Please choose an activity type to add to the room: ");
+                                    if (activities.contains(activity_type.toLowerCase())) {
+                                        possible_activities.add(activity_type);
+                                        if (activity_type.toLowerCase().equals("lab")) {
+                                            activities.remove("laboratory");
+                                        } else if (activity_type.toLowerCase().equals("laboratory")) {
+                                            activities.remove("lab");
+                                        }
+                                        activities.remove(activity_type.toLowerCase());
+                                    }
+                                    answer = readString("Would you like to add another activity type? [Yes / No] ");
+                                } while (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"));
+                                if (this.ctrl.updateRoomByNum(name, seats, building, possible_activities)) {
                                     printUpdateRoom();
                                 }
+                                activities.clear();
                                 break;
                             default:
                                 System.out.println("Please enter a valid command...");

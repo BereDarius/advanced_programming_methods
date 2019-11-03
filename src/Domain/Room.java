@@ -2,18 +2,20 @@ package Domain;
 
 import Exceptions.RoomException;
 
+import java.util.ArrayList;
+
 public class Room {
 
     private String roomNumber;
     private int availableSeats;
     private String building;
-
+    private ArrayList<String> activity_types;
 
     /*
     CONSTRUCTOR
      */
 
-    public Room(String roomNumber, int availableSeats, String building) throws RoomException {
+    public Room(String roomNumber, int availableSeats, String building, ArrayList<String> activities) throws RoomException {
         if (roomNumber != null && !roomNumber.equals("")) {
             this.roomNumber = roomNumber;
         } else {
@@ -29,7 +31,17 @@ public class Room {
         } else {
             throw new RoomException("The building name cannot be null or empty...");
         }
-
+        ArrayList<String> possible_activities = new ArrayList<>();
+        possible_activities.add("lab");
+        possible_activities.add("laboratory");
+        possible_activities.add("lecture");
+        possible_activities.add("seminar");
+        for (String activity_type : activities) {
+            if (!possible_activities.contains(activity_type)) {
+                throw new RoomException("There is no activity type: " + activity_type);
+            }
+        }
+        this.activity_types = activities;
     }
 
     /*
@@ -59,6 +71,10 @@ public class Room {
     public void setBuilding(String building) {
         this.building = building;
     }
+
+    public ArrayList<String> getActivityTypes() { return this.activity_types; }
+
+    public void setActivityTypes(ArrayList<String> newActivityTypes) { this.activity_types = newActivityTypes; }
 
     /*
     TO_STRING() AND EQUALS() OVERRIDE METHODS

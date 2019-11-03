@@ -82,7 +82,7 @@ public class Teacher {
 
     public void setEmail(String newEmail) { this.email = newEmail; }
 
-    public String getEmail() { return this.email; }
+    private String getEmail() { return this.email; }
 
     /*
     TO_STRING() AND EQUALS() OVERRIDE METHODS

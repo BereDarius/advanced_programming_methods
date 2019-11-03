@@ -65,11 +65,12 @@ public class RoomRepo {
     THROWS AN EXCEPTION IF THE INDEX IS OUT OF BOUNDS
      */
 
-    public void update(int index, String newRoomNum, int newNumOfSeats, String newBuilding) throws RoomRepoException {
+    public void update(int index, String newRoomNum, int newNumOfSeats, String newBuilding, ArrayList<String> possible_activities) throws RoomRepoException {
         if (index >= 0 && index < rooms.size()) {
             this.rooms.get(index).setRoomNumber(newRoomNum);
             this.rooms.get(index).setAvailableSeats(newNumOfSeats);
             this.rooms.get(index).setBuilding(newBuilding);
+            this.rooms.get(index).setActivityTypes(possible_activities);
         } else {
             throw new RoomRepoException("Rooms repository index out of bounds...");
         }
@@ -81,11 +82,12 @@ public class RoomRepo {
     THROWS AN EXCEPTION IF THERE IS NO ROOM HAVING THE GIVEN NUMBER
      */
 
-    public boolean update(String roomNum, int newNumOfSeats, String newBuilding) throws RoomRepoException {
+    public boolean update(String roomNum, int newNumOfSeats, String newBuilding, ArrayList<String> newActivityTypes) throws RoomRepoException {
         for (Room room : this.rooms) {
             if (room.getRoomNumber().equals(roomNum)) {
                 room.setAvailableSeats(newNumOfSeats);
                 room.setBuilding(newBuilding);
+                room.setActivityTypes(newActivityTypes);
                 return true;
             }
         }

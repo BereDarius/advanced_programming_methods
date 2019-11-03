@@ -150,22 +150,22 @@ public class Controller {
         return this.rooms.remove(num);
     }
 
-     public void updateRoom(int index, String num, int numSeats, String building) throws RoomRepoException, RoomException {
+     public void updateRoom(int index, String num, int numSeats, String building, ArrayList<String> activities) throws RoomRepoException, RoomException {
          for (Activity activity : this.activities.getAll()) {
             if (activity.getRoom().equals(this.rooms.getAll().get(index))) {
-                activity.setRoom(new Room(num, numSeats, building));
+                activity.setRoom(new Room(num, numSeats, building, activities));
             }
          }
-         this.rooms.update(index, num, numSeats, building);
+         this.rooms.update(index, num, numSeats, building, activities);
     }
 
-    public boolean updateRoomByNum(String num, int numSeats, String building) throws RoomRepoException, RoomException {
+    public boolean updateRoomByNum(String num, int numSeats, String building, ArrayList<String> activities) throws RoomRepoException, RoomException {
         for (Activity activity : this.activities.getAll()) {
             if (activity.getRoom().getRoomNumber().toLowerCase().equals(num.toLowerCase())) {
-                activity.setRoom(new Room(num, numSeats, building));
+                activity.setRoom(new Room(num, numSeats, building, activities));
             }
         }
-        return this.rooms.update(num, numSeats, building);
+        return this.rooms.update(num, numSeats, building, activities);
     }
 
     public RoomRepo getAllRooms() {
