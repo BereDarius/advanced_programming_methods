@@ -20,38 +20,58 @@ class ActivityTest {
     void exceptionIsThrown() {
         assertThrows(ActivityException.class, () -> {
             String activity_type = "fish";
-            new Activity(null, activity_type, null, null);
+            ArrayList<String> activities1 = new ArrayList<>();
+            activities1.add("lab");
+            activities1.add("seminar");
+            Room room1 = new Room("C1", 1000000, "B!F", activities1);
+            new Activity(null, activity_type, null, room1);
         });
     }
 
     @Test
-    void getDiscipline() throws DisciplineException, ActivityException {
+    void getDiscipline() throws DisciplineException, ActivityException, RoomException {
         Discipline discipline = new Discipline("name", "field");
-        Activity activity = new Activity(discipline, "lab", null, null);
+        ArrayList<String> activities1 = new ArrayList<>();
+        activities1.add("lab");
+        activities1.add("seminar");
+        Room room1 = new Room("C1", 1000000, "B!F", activities1);
+        Activity activity = new Activity(discipline, "lab", null, room1);
         assertEquals(activity.getDiscipline(), discipline);
     }
 
     @Test
-    void setDiscipline() throws DisciplineException, ActivityException  {
+    void setDiscipline() throws DisciplineException, ActivityException, RoomException {
         Discipline discipline1 = new Discipline("name1", "field1");
         Discipline discipline2 = new Discipline("name2", "field2");
-        Activity activity = new Activity(discipline1, "lab", null, null);
+        ArrayList<String> activities1 = new ArrayList<>();
+        activities1.add("lab");
+        activities1.add("seminar");
+        Room room1 = new Room("C1", 1000000, "B!F", activities1);
+        Activity activity = new Activity(discipline1, "lab", null, room1);
         activity.setDiscipline(discipline2);
         assertEquals(activity.getDiscipline(), discipline2);
     }
 
     @Test
-    void getTeacher() throws TeacherException, ActivityException {
+    void getTeacher() throws TeacherException, ActivityException, RoomException {
         Teacher teacher = new Teacher(1, "a", "b", "c", "@.");
-        Activity activity = new Activity(null, "lab", teacher, null);
+        ArrayList<String> activities1 = new ArrayList<>();
+        activities1.add("lab");
+        activities1.add("seminar");
+        Room room1 = new Room("C1", 1000000, "B!F", activities1);
+        Activity activity = new Activity(null, "lab", teacher, room1);
         assertEquals(activity.getTeacher(), teacher);
     }
 
     @Test
-    void setTeacher() throws TeacherException, ActivityException {
+    void setTeacher() throws TeacherException, ActivityException, RoomException {
         Teacher teacher1 = new Teacher(1, "aa", "ba", "ca", "@.a");
         Teacher teacher2 = new Teacher(2, "ab", "bb", "cb", "@.b");
-        Activity activity = new Activity(null, "lab", teacher1, null);
+        ArrayList<String> activities1 = new ArrayList<>();
+        activities1.add("lab");
+        activities1.add("seminar");
+        Room room1 = new Room("C1", 1000000, "B!F", activities1);
+        Activity activity = new Activity(null, "lab", teacher1, room1);
         activity.setTeacher(teacher2);
         assertEquals(activity.getTeacher(), teacher2);
     }
@@ -97,8 +117,8 @@ class ActivityTest {
         Room room2 = new Room("!WDE", 1, "BASE", activities2);
         Activity activity1 = new Activity(discipline1, "lab", teacher1, room1);
         Activity activity2 = new Activity(discipline2, "lecture", teacher2, room2);
-        assertNotEquals(activity1, activity2);
+        assert !activity1.equals(activity2);
         Activity activity3 = new Activity(discipline1, "lab", teacher1, room1);
-        assertEquals(activity1, activity3);
+        assert activity1.equals(activity3);
     }
 }

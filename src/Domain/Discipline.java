@@ -36,7 +36,7 @@ public class Discipline {
         this.name = name;
     }
 
-    private String getField() {
+    public String getField() {
         return field;
     }
 

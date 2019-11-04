@@ -45,7 +45,7 @@ public class Formation {
 
     public void setSubgroup(Formation f) { this.subgroup = f; }
 
-    private ArrayList<Activity> getActivities() {
+    public ArrayList<Activity> getActivities() {
         return activities;
     }
 
@@ -75,6 +75,10 @@ public class Formation {
         if (this == o) return true;
         if (!(o instanceof Formation)) return false;
         Formation formation = (Formation) o;
+        if (getSubgroup() == null && formation.getSubgroup() == null) {
+            return getName().equals(formation.getName()) &&
+                    getActivities().equals(formation.getActivities());
+        }
         return getName().equals(formation.getName()) &&
                 getSubgroup().equals(formation.getSubgroup()) &&
                 getActivities().equals(formation.getActivities());

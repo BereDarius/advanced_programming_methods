@@ -2,32 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e12f92e0-75cf-4d4a-b6ba-54fe6233e1bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Domain/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Domain/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Domain/Teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Domain/Teacher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Repos/RoomRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Repos/RoomRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/UI/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/UI/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/start.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/start.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Discipline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Discipline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Formation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Formation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repos/RoomRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repos/RoomRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/ActivityRepoTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/ActivityTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DisciplineRepoTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DisciplineTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/FormationRepoTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/FormationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/RoomRepoTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/RoomTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TeacherRepoTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TeacherTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/ActivityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ActivityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/DisciplineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DisciplineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/FormationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/FormationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/RoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/RoomTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/TeacherTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/TeacherTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="183" />
+    <option name="myElementSize" value="181" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Lab1" />
@@ -91,7 +74,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ActivityTest">
+  <component name="RunManager" selected="JUnit.TeacherTest">
     <configuration name="ActivityTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Tests.ActivityTests" />
       <module name="Lab1" />
@@ -101,13 +84,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="start" />
-      <module name="Lab1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -127,11 +103,57 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DisciplineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DisciplineTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeacherTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.TeacherTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests in Lab1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TeacherTest" />
+        <item itemvalue="JUnit.Tests in Lab1" />
+        <item itemvalue="JUnit.DisciplineTest" />
         <item itemvalue="JUnit.ActivityTest" />
         <item itemvalue="Application.ActivityTests" />
-        <item itemvalue="Application.start" />
       </list>
     </recent_temporary>
   </component>
@@ -153,13 +175,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Lab1$Tests_in_Lab1.ic" NAME="Tests in Lab1 Coverage Results" MODIFIED="1572900199189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Lab1$TeacherTest.ic" NAME="TeacherTest Coverage Results" MODIFIED="1572900356717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Lab1$DisciplineTest.ic" NAME="DisciplineTest Coverage Results" MODIFIED="1572892280548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Lab1$ActivityTest.ic" NAME="ActivityTest Coverage Results" MODIFIED="1572817380980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>

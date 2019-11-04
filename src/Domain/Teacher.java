@@ -41,7 +41,7 @@ public class Teacher {
         if (!email.contains("@") || !email.contains(".")) {
             throw new TeacherException("The teacher's email must be a valid one...\n");
         }
-
+        this.email = email;
     }
 
     /*
@@ -52,7 +52,7 @@ public class Teacher {
         return id;
     }
 
-    private String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -60,7 +60,7 @@ public class Teacher {
         this.firstName = firstName;
     }
 
-    private String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
@@ -72,7 +72,7 @@ public class Teacher {
         this.lastName = lastName;
     }
 
-    private String getTitle() {
+    public String getTitle() {
         return title;
     }
 
@@ -82,7 +82,7 @@ public class Teacher {
 
     public void setEmail(String newEmail) { this.email = newEmail; }
 
-    private String getEmail() { return this.email; }
+    public String getEmail() { return this.email; }
 
     /*
     TO_STRING() AND EQUALS() OVERRIDE METHODS
