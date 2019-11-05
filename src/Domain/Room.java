@@ -82,7 +82,15 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room:\n" + "room number: " + roomNumber + ", availableSeats: " + availableSeats + ";\n";
+        StringBuilder result = new StringBuilder("Room:\n" + "room number: " + roomNumber + ", availableSeats: " + availableSeats + ", possible activities: ");
+        for (int i = 0; i < activity_types.size(); ++i) {
+            if (i == activity_types.size()-1) {
+                result.append(activity_types.get(i)).append(";");
+            } else {
+                result.append(", ").append(activity_types.get(i));
+            }
+        }
+        return result.toString();
     }
 
     @Override

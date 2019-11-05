@@ -15,6 +15,7 @@ public class Teacher {
      */
 
     public Teacher(int id, String firstName, String lastName, String title, String email) throws TeacherException {
+
         if (id > 0) {
             this.id = id;
         } else {

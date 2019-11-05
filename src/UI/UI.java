@@ -540,6 +540,7 @@ public class UI {
                                 name = readString("Please enter the discipline's new name: ");
                                 field = readString("Please enter the discipline's new filed: ");
                                 this.ctrl.updateDiscipline(index, name, field);
+                                printUpdateDiscipline();
                                 break;
                             case 6:
                                 name = readString("Please enter the name of the discipline you wish to update: ");

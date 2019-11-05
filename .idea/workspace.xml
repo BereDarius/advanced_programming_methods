@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e12f92e0-75cf-4d4a-b6ba-54fe6233e1bc" name="Default Changelist" comment="" />
+    <list default="true" id="e12f92e0-75cf-4d4a-b6ba-54fe6233e1bc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/ActivityRepoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Tests/ActivityRepoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/start.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/start.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/ActivityRepoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ActivityRepoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/ActivityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ActivityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/DisciplineRepoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DisciplineRepoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/FormationRepoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/FormationRepoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/RoomRepoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/RoomRepoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/TeacherRepoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/TeacherRepoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/start.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,21 +78,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TeacherTest">
-    <configuration name="ActivityTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Tests.ActivityTests" />
+  <component name="RunManager" selected="JUnit.Tests in Lab1">
+    <configuration name="start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="start" />
       <module name="Lab1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ActivityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivityRepoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Lab1" />
       <extension name="coverage">
         <pattern>
@@ -87,13 +95,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.ActivityTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ActivityRepoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DisciplineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DisciplineRepoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Lab1" />
       <extension name="coverage">
         <pattern>
@@ -102,13 +110,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DisciplineTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DisciplineRepoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TeacherTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DisciplineRepoTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Lab1" />
       <extension name="coverage">
         <pattern>
@@ -117,8 +125,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.TeacherTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DisciplineRepoTest" />
+      <option name="METHOD_NAME" value="add" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -139,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TeacherTest" />
         <item itemvalue="JUnit.Tests in Lab1" />
-        <item itemvalue="JUnit.DisciplineTest" />
-        <item itemvalue="JUnit.ActivityTest" />
-        <item itemvalue="Application.ActivityTests" />
+        <item itemvalue="JUnit.DisciplineRepoTest" />
+        <item itemvalue="Application.start" />
+        <item itemvalue="JUnit.DisciplineRepoTest.add" />
+        <item itemvalue="JUnit.ActivityRepoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -186,16 +195,31 @@
     <option name="LAST_COMMIT_MESSAGE" value="Finished tests for all classes from the Domain package" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Lab1$Tests_in_Lab1.ic" NAME="Tests in Lab1 Coverage Results" MODIFIED="1572900199189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Lab1$TeacherTest.ic" NAME="TeacherTest Coverage Results" MODIFIED="1572900356717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Lab1$TeacherTest.ic" NAME="TeacherTest Coverage Results" MODIFIED="1572900356717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Lab1$Tests_in_Lab1.ic" NAME="Tests in Lab1 Coverage Results" MODIFIED="1572959885220" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Lab1$ActivityRepoTest.ic" NAME="ActivityRepoTest Coverage Results" MODIFIED="1572957115051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Lab1$DisciplineTest.ic" NAME="DisciplineTest Coverage Results" MODIFIED="1572892280548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Lab1$DisciplineRepoTest.ic" NAME="DisciplineRepoTest Coverage Results" MODIFIED="1572959856884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Lab1$ActivityRepoTest_add.ic" NAME="ActivityRepoTest.add Coverage Results" MODIFIED="1572951969919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Lab1$ActivityRepoTest_insert.ic" NAME="ActivityRepoTest.insert Coverage Results" MODIFIED="1572952366771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Lab1$ActivityTest.ic" NAME="ActivityTest Coverage Results" MODIFIED="1572817380980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Lab1$DisciplineRepoTest_add.ic" NAME="DisciplineRepoTest.add Coverage Results" MODIFIED="1572957467287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>
   </component>

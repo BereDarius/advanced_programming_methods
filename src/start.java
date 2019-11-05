@@ -32,17 +32,21 @@ public class start {
         ArrayList<String> possible_activities4 = new ArrayList<>();
         ArrayList<String> possible_activities5 = new ArrayList<>();
 
-        possible_activities1.add("lab");
+        possible_activities1.add("laboratory");
         possible_activities1.add("seminar");
         possible_activities1.add("lecture");
         possible_activities2.add("laboratory");
         possible_activities2.add("seminar");
+        possible_activities2.add("lecture");
         possible_activities3.add("lecture");
-        possible_activities4.add("lab");
+        possible_activities3.add("laboratory");
+        possible_activities3.add("seminar");
+        possible_activities4.add("laboratory");
         possible_activities4.add("seminar");
         possible_activities4.add("lecture");
         possible_activities5.add("laboratory");
         possible_activities5.add("seminar");
+        possible_activities5.add("lecture");
 
         Room room1 = new Room("C101", 100, "FSEGA", possible_activities1);
         Room room2 = new Room("6/II", 100, "Centru", possible_activities2);
@@ -51,20 +55,20 @@ public class start {
         Room room5 = new Room("C531", 100, "FSEGA", possible_activities5);
 
         Activity act1 = new Activity(disc2, "laboratory", teach2, room4);
-        Activity act2 = new Activity(disc4, "lab", teach3, room1);
+        Activity act2 = new Activity(disc4, "laboratory", teach3, room1);
         Activity act3 = new Activity(disc3, "laboratory", teach2, room5);
-        Activity act4 = new Activity(disc2, "lab", teach1, room3);
+        Activity act4 = new Activity(disc2, "laboratory", teach1, room3);
         Activity act5 = new Activity(disc2, "seminar", teach5, room2);
         Activity act6 = new Activity(disc1, "lecture", teach3, room4);
         Activity act7 = new Activity(disc5, "seminar", teach1, room1);
-        Activity act8 = new Activity(disc1, "lab", teach5, room3);
+        Activity act8 = new Activity(disc1, "laboratory", teach5, room3);
         Activity act9 = new Activity(disc4, "laboratory", teach2, room4);
         Activity act10 = new Activity(disc3, "lecture", teach5, room2);
         Activity act11 = new Activity(disc1, "seminar", teach4, room3);
         Activity act12 = new Activity(disc5, "laboratory", teach2, room5);
         Activity act13 = new Activity(disc2, "lecture", teach1, room1);
         Activity act14 = new Activity(disc2, "seminar", teach2, room4);
-        Activity act15 = new Activity(disc4, "lab", teach4, room3);
+        Activity act15 = new Activity(disc4, "laboratory", teach4, room3);
 
         ArrayList<Activity> activities1 = new ArrayList<>();
         ArrayList<Activity> activities2 = new ArrayList<>();

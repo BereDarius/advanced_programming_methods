@@ -122,3 +122,4 @@ class ActivityTest {
         assert activity1.equals(activity3);
     }
 }
+

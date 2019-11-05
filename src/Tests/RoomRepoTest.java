@@ -15,22 +15,6 @@ class RoomRepoTest {
     }
 
     @Test
-    void testRemove() {
-    }
-
-    @Test
     void update() {
-    }
-
-    @Test
-    void testUpdate() {
-    }
-
-    @Test
-    void getSize() {
-    }
-
-    @Test
-    void getAll() {
     }
 }
