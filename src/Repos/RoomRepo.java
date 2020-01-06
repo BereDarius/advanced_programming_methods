@@ -103,6 +103,19 @@ public class RoomRepo {
     }
 
     /*
+    RETURNS THE ROOM HAVING THE GIVEN ROOM NUMBER
+     */
+
+    public Room getRoomByRoomNumber(String roomNumber) {
+        for (Room room : rooms) {
+            if (room.getRoomNumber().toLowerCase().equals(roomNumber.toLowerCase())) {
+                return room;
+            }
+        }
+        return null;
+    }
+
+    /*
     METHOD THAT RETURNS A LIST CONTAINING ALL THE ROOMS FROM THE REPO
      */
 

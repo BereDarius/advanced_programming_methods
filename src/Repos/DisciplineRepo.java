@@ -25,7 +25,7 @@ public class DisciplineRepo {
 
     public boolean add(Discipline d) throws DisciplineRepoException {
         for (Discipline discipline : this.getAll()) {
-            if (discipline.getName().toLowerCase().equals(d.getName().toLowerCase())) {
+            if (discipline.getId() == d.getId()) {
                 throw new DisciplineRepoException("This discipline already exists in the disciplines repository...");
             }
         }
@@ -50,9 +50,9 @@ public class DisciplineRepo {
     RETURNS TRUE IF THE ENTITY WAS REMOVED AND THROWS AN EXCEPTION OTHERWISE
      */
 
-    public boolean remove(String name) throws DisciplineRepoException {
+    public boolean remove(int id) throws DisciplineRepoException {
         for (int i = 0; i < this.disciplines.size(); ++i) {
-            if (this.disciplines.get(i).getName().toLowerCase().equals(name.toLowerCase())) {
+            if (this.disciplines.get(i).getId() == id) {
                 return this.disciplines.remove(this.disciplines.get(i));
             }
         }
@@ -64,24 +64,26 @@ public class DisciplineRepo {
     NEW GIVEN ONES;
      */
 
-    public void update(int index, String newName, String newField) throws DisciplineRepoException {
+    public void update(int index, int id, String newName, String newField) throws DisciplineRepoException {
         if (index < this.disciplines.size() && index >= 0) {
             this.disciplines.get(index).setName(newName);
             this.disciplines.get(index).setField(newField);
+            this.disciplines.get(index).setId(id);
         } else {
             throw new DisciplineRepoException("Discipline repo index out of bounds...");
         }
     }
 
     /*
-    METHOD THAT UPDATES THE DISCIPLINE HAVING THE GIVEN NAME AND CHANGES IT'S FIELD;
+    METHOD THAT UPDATES THE DISCIPLINE HAVING THE GIVEN ID AND CHANGES IT'S NAME AND FIELD;
     RETURNS TRUE IF THE ENTITY WAS UPDATED AND THROWS AN EXCEPTION OTHERWISE
      */
 
-    public boolean update(String name, String newField) throws DisciplineRepoException {
+    public boolean update(int id, String name, String newField) throws DisciplineRepoException {
         for (Discipline discipline : this.disciplines) {
-            if (discipline.getName().equals(name)) {
+            if (discipline.getId() == id) {
                 discipline.setField(newField);
+                discipline.setName(name);
                 return true;
             }
         }
@@ -94,6 +96,19 @@ public class DisciplineRepo {
 
     public int getSize() {
         return this.disciplines.size();
+    }
+
+    /*
+    RETURNS THE DISCIPLINE HAVING THE GIVEN ID
+     */
+
+    public Discipline getDisciplineById(int id) {
+        for (Discipline discipline : disciplines) {
+            if (discipline.getId() == id) {
+                return discipline;
+            }
+        }
+        return null;
     }
 
     /*

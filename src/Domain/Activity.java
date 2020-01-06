@@ -6,60 +6,68 @@ import java.util.ArrayList;
 
 
 public class Activity {
-
-    private Discipline discipline;
+    private int id;
+    private int discipline_id;
     private String activityType;
-    private Teacher teacher;
-    private Room room;
-
+    private int teacher_id;
+    private String room_number;
 
     /*
     CONSTRUCTOR
      */
 
-    public Activity(Discipline discipline, String activityType, Teacher teacher, Room room) throws ActivityException {
+    public Activity(int id, int discipline_id, String activityType, int teacher_id, String room_number) throws ActivityException {
         ArrayList<String> activityTypes = new ArrayList<>();
         activityTypes.add("laboratory");
         activityTypes.add("seminar");
         activityTypes.add("lecture");
         activityTypes.add("lab");
-        this.discipline = discipline;
-        if (!room.getActivityTypes().contains(activityType)) {
-            throw new ActivityException("The activity type must be contained in the room's possible activity types...");
+        if (id > 0) {
+            this.id = id;
+        } else {
+            throw new ActivityException("The ID must be a positive number...");
+        }
+        this.discipline_id = discipline_id;
+        this.teacher_id = teacher_id;
+        if (activityType == null) {
+            throw new ActivityException("The activity type cannot be null...");
         }
         if (activityTypes.contains(activityType.toLowerCase())) {
             this.activityType = activityType;
         } else {
             throw new ActivityException("Activity type does not exist...");
         }
-        this.teacher = teacher;
-        this.room = room;
+        this.room_number = room_number;
     }
 
     /*
     GETTERS AND SETTERS
      */
 
-    private String getActivityType() {
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
+
+    public String getActivityType() {
         return activityType;
     }
 
-    public Discipline getDiscipline() {
-        return discipline;
+    public int getDiscipline() {
+        return discipline_id;
     }
 
-    public void setDiscipline(Discipline newDiscipline) { this.discipline = newDiscipline; }
+    public void setDiscipline(int newDiscipline) { this.discipline_id = newDiscipline; }
 
-    public Teacher getTeacher() { return teacher; }
+    public int getTeacher() { return teacher_id; }
 
-    public Room getRoom() { return this.room; }
+    public String getRoom() { return this.room_number; }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setRoom(String room) {
+        this.room_number = room;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setTeacher(int teacher) {
+        this.teacher_id = teacher;
     }
 
     /*
@@ -69,9 +77,9 @@ public class Activity {
     @Override
     public String toString() {
         return "Activity:\n\t" +
-                discipline +
+                discipline_id +
                 "\tActivity type: " + activityType + ";" +
-                "\n\t " + teacher;
+                "\n\t " + teacher_id;
     }
 
     @Override
@@ -79,10 +87,9 @@ public class Activity {
         if (this == o) return true;
         if (!(o instanceof Activity)) return false;
         Activity activity = (Activity) o;
-        return getDiscipline().equals(activity.getDiscipline()) &&
+        return getDiscipline() == activity.getDiscipline() &&
                 getActivityType().equals(activity.getActivityType()) &&
-                teacher.equals(activity.teacher) &&
-                room.equals(activity.room);
+                getTeacher() == activity.getTeacher() &&
+                getRoom().equals(activity.getRoom());
     }
-
 }

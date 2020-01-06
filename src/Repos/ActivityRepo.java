@@ -35,8 +35,12 @@ public class ActivityRepo {
     METHOD THAT INSERTS AN ACTIVITY IN THE REPO AT A GIVEN INDEX
      */
 
-    public void insert(int index, Activity a) {
-        this.activities.add(index, a);
+    public void insert(int index, Activity a) throws ActivityRepoException {
+        if (!activities.contains(a)) {
+            this.activities.add(index, a);
+        } else {
+            throw new ActivityRepoException("This activity already exists in the repository...");
+        }
     }
 
     /*
@@ -58,6 +62,19 @@ public class ActivityRepo {
 
     public int getSize() {
         return this.activities.size();
+    }
+
+    /*
+    RETURNS THE ACTIVITY HAVING THE GIVEN ID
+     */
+
+    public Activity getActivityById(int id) {
+        for (Activity activity : activities) {
+            if (activity.getId() == id) {
+                return activity;
+            }
+        }
+        return null;
     }
 
     /*

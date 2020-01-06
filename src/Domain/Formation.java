@@ -5,16 +5,21 @@ import Exceptions.FormationException;
 import java.util.ArrayList;
 
 public class Formation {
+    private int id;
     private String name;
     private Formation subgroup;
-    private ArrayList<Activity> activities;
-
+    private ArrayList<Integer> activities;
 
     /*
     CONSTRUCTOR
      */
 
-    public Formation(String name, ArrayList<Activity> activities) throws FormationException {
+    public Formation(int id, String name, ArrayList<Integer> activities) throws FormationException {
+        if (id > 0) {
+            this.id = id;
+        } else {
+            throw new FormationException("The id must be a positive number...");
+        }
         if (name != null && !name.equals("")) {
             this.name = name;
         } else {
@@ -31,6 +36,10 @@ public class Formation {
     GETTERS AND SETTERS
      */
 
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
+
     public String getName() {
         return name;
     }
@@ -45,15 +54,15 @@ public class Formation {
 
     public void setSubgroup(Formation f) { this.subgroup = f; }
 
-    public ArrayList<Activity> getActivities() {
+    public ArrayList<Integer> getActivities() {
         return activities;
     }
 
-    public void addActivity(Activity activity) {
+    public void addActivity(int activity) {
         this.activities.add(activity);
     }
 
-    public void removeActivity(Activity activity) {
+    public void removeActivity(int activity) {
         this.activities.remove(activity);
     }
 

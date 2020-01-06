@@ -67,24 +67,26 @@ public class FormationRepo {
     METHOD THAT UPDATES A FORMATION FOUND AT THE GIVEN INDEX IN THE REPO AND CHANGES THE NAME WITH A NEW GIVEN ONE
      */
 
-    public void update(Formation formation, String newName, ArrayList<Activity> newActivities, ArrayList<Activity> removeActivities, Formation newSubgroup) {
+    public void update(int id, Formation formation, String newName, ArrayList<Integer> newActivities, ArrayList<Integer> removeActivities, Formation newSubgroup) {
         formation.setName(newName);
-        for (Activity activity : newActivities) {
+        for (int activity : newActivities) {
             formation.addActivity(activity);
         }
-        for (Activity activity : removeActivities) {
+        for (int activity : removeActivities) {
             formation.removeActivity(activity);
         }
         formation.setSubgroup(newSubgroup);
+        formation.setId(id);
     }
 
-    public void updateByName(String name, ArrayList<Activity> newActivities, ArrayList<Activity> removeActivities, Formation newSubgroup) {
+    public void updateById(int id, String name, ArrayList<Integer> newActivities, ArrayList<Integer> removeActivities, Formation newSubgroup) {
         for (Formation f : this.formations) {
-            if (name.toLowerCase().equals(f.getName().toLowerCase())) {
-                for (Activity activity : newActivities) {
+            if (f.getId() == id) {
+                f.setName(name);
+                for (int activity : newActivities) {
                     f.addActivity(activity);
                 }
-                for (Activity activity : removeActivities) {
+                for (int activity : removeActivities) {
                     f.removeActivity(activity);
                 }
                 f.setSubgroup(newSubgroup);
@@ -98,6 +100,19 @@ public class FormationRepo {
 
     public int getSize() {
         return this.formations.size();
+    }
+
+    /*
+    RETURNS THE FORMATION HAVING THE GIVEN ID
+     */
+
+    public Formation getFormationById(int id) {
+        for (Formation formation : formations) {
+            if (formation.getId() == id) {
+                return formation;
+            }
+        }
+        return null;
     }
 
     /*

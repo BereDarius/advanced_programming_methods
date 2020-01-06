@@ -14,6 +14,7 @@ public class Controller {
     private FormationRepo formations;
     private RoomRepo rooms;
     private TeacherRepo teachers;
+    private BinaryRepo<Teacher> binaryTeachers;
 
     public Controller(ActivityRepo activities, DisciplineRepo disciplines, FormationRepo formations, RoomRepo rooms, TeacherRepo teachers) {
         this.activities = activities;
@@ -31,7 +32,7 @@ public class Controller {
         return this.activities.add(a);
     }
 
-    public void insertActivity(int index, Activity a) {
+    public void insertActivity(int index, Activity a) throws ActivityRepoException {
         this.activities.insert(index, a);
     }
 
@@ -51,40 +52,35 @@ public class Controller {
         return this.disciplines.add(d);
     }
 
-    public boolean removeDiscipline(Discipline d) throws DisciplineRepoException, ActivityRepoException {
+    public boolean removeDiscipline(int index) throws DisciplineRepoException, ActivityRepoException {
         for (Activity activity : this.activities.getAll()) {
-            if (activity.getDiscipline().equals(d)) {
+            if (activity.getDiscipline() == this.disciplines.getAll().get(index).getId()) {
                 this.removeActivity(activity);
             }
         }
-        return this.disciplines.remove(d);
+        return this.disciplines.remove(this.disciplines.getAll().get(index));
     }
 
-    public boolean removeDisciplineByName(String name) throws DisciplineRepoException, ActivityRepoException {
+    public boolean removeDisciplineById(int id) throws DisciplineRepoException, ActivityRepoException {
         for (Activity activity : this.activities.getAll()) {
-            if (activity.getDiscipline().getName().toLowerCase().equals(name.toLowerCase())) {
+            if (activity.getDiscipline() == id) {
                 this.removeActivity(activity);
             }
         }
-        return this.disciplines.remove(name);
+        return this.disciplines.remove(id);
     }
 
-    public void updateDiscipline(int index, String name, String field) throws DisciplineRepoException, DisciplineException {
+    public void updateDiscipline(int index, int id, String name, String field) throws DisciplineRepoException {
         for (Activity activity : this.activities.getAll()) {
-            if (activity.getDiscipline().equals(this.disciplines.getAll().get(index))) {
-                activity.setDiscipline(new Discipline(name, field));
+            if (disciplines.getDisciplineById(activity.getDiscipline()).equals(disciplines.getAll().get(index))) {
+                activity.setDiscipline(id);
             }
         }
-        this.disciplines.update(index, name, field);
+        this.disciplines.update(index, id, name, field);
     }
 
-    public boolean updateDisciplineByName(String name, String field) throws DisciplineRepoException, DisciplineException {
-        for (Activity activity : this.activities.getAll()){
-            if (activity.getDiscipline().getName().toLowerCase().equals(name.toLowerCase())) {
-                activity.setDiscipline(new Discipline(name, field));
-            }
-        }
-        return this.disciplines.update(name, field);
+    public boolean updateDisciplineById(int id, String name, String field) throws DisciplineException, DisciplineRepoException {
+        return this.disciplines.update(id, name, field);
     }
 
     public DisciplineRepo getAllDisciplines() {
@@ -107,17 +103,17 @@ public class Controller {
         return this.formations.remove(name);
     }
 
-    public void updateFormation(Formation formation, String name, ArrayList<Activity> newActivities, ArrayList<Activity> removeActivities, Formation newSubgroup) throws ActivityRepoException {
-        for (Activity activity : newActivities) {
-            if (!this.activities.getAll().contains(activity)) {
-                this.activities.add(activity);
+    public void updateFormation(int id, Formation formation, String name, ArrayList<Integer> newActivities, ArrayList<Integer> removeActivities, Formation newSubgroup) throws ActivityRepoException {
+        for (int activity : newActivities) {
+            if (!this.activities.getAll().contains(activities.getActivityById(activity))) {
+                this.activities.add(activities.getActivityById(activity));
             }
         }
-        this.formations.update(formation, name, newActivities, removeActivities, newSubgroup);
+        this.formations.update(id, formation, name, newActivities, removeActivities, newSubgroup);
     }
 
-    public void updateFormationByName(String name, ArrayList<Activity> newActivities, ArrayList<Activity> removeActivities, Formation newSubgroup) {
-        this.formations.updateByName(name, newActivities, removeActivities, newSubgroup);
+    public void updateFormationByName(int id, String name, ArrayList<Integer> newActivities, ArrayList<Integer> removeActivities, Formation newSubgroup) {
+        this.formations.updateById(id, name, newActivities, removeActivities, newSubgroup);
     }
 
     public FormationRepo getAllFormations() {
@@ -134,7 +130,7 @@ public class Controller {
 
     public boolean removeRoom(Room r) throws RoomRepoException, ActivityRepoException {
         for (Activity activity : this.activities.getAll()) {
-            if (activity.getRoom().equals(r)) {
+            if (rooms.getRoomByRoomNumber(activity.getRoom()).equals(r)) {
                 this.activities.remove(activity);
             }
         }
@@ -143,26 +139,26 @@ public class Controller {
 
     public boolean removeRoomByNum(String num) throws RoomRepoException, ActivityRepoException {
         for (Activity activity : this.activities.getAll()) {
-            if (activity.getRoom().getRoomNumber().toLowerCase().equals(num.toLowerCase())) {
+            if (activity.getRoom().toLowerCase().equals(num.toLowerCase())) {
                 this.activities.remove(activity);
             }
         }
         return this.rooms.remove(num);
     }
 
-     public void updateRoom(int index, String num, int numSeats, String building, ArrayList<String> activities) throws RoomRepoException, RoomException {
+     public void updateRoom(int index, String num, int numSeats, String building, ArrayList<String> activities) throws RoomRepoException {
          for (Activity activity : this.activities.getAll()) {
-            if (activity.getRoom().equals(this.rooms.getAll().get(index))) {
-                activity.setRoom(new Room(num, numSeats, building, activities));
+            if (activity.getRoom().toLowerCase().equals(rooms.getAll().get(index).getRoomNumber().toLowerCase())) {
+                activity.setRoom(num);
             }
          }
          this.rooms.update(index, num, numSeats, building, activities);
     }
 
-    public boolean updateRoomByNum(String num, int numSeats, String building, ArrayList<String> activities) throws RoomRepoException, RoomException {
+    public boolean updateRoomByNum(String num, int numSeats, String building, ArrayList<String> activities) throws RoomRepoException {
         for (Activity activity : this.activities.getAll()) {
-            if (activity.getRoom().getRoomNumber().toLowerCase().equals(num.toLowerCase())) {
-                activity.setRoom(new Room(num, numSeats, building, activities));
+            if (activity.getRoom().toLowerCase().equals(num.toLowerCase())) {
+                activity.setRoom(num);
             }
         }
         return this.rooms.update(num, numSeats, building, activities);
@@ -182,7 +178,7 @@ public class Controller {
 
     public boolean removeTeacher(Teacher t) throws TeacherRepoException, ActivityRepoException {
         for (Activity a : this.activities.getAll()) {
-            if (a.getTeacher().equals(t)) {
+            if (teachers.getTeacherById(a.getTeacher()).equals(t)) {
                 this.activities.remove(a);
             }
         }
@@ -191,26 +187,26 @@ public class Controller {
 
     public boolean removeTeacherByID(int id) throws TeacherRepoException, ActivityRepoException {
         for (Activity activity : this.activities.getAll()) {
-            if (activity.getTeacher().getId() == id) {
+            if (activity.getTeacher() == id) {
                 this.activities.remove(activity);
             }
         }
         return this.teachers.remove(id);
     }
 
-    public void updateTeacher(int index, int id, String fn, String ln, String title, String email) throws TeacherRepoException, TeacherException {
+    public void updateTeacher(int index, int id, String fn, String ln, String title, String email) throws TeacherRepoException {
         for (Activity activity : this.activities.getAll()) {
-            if (activity.getTeacher().equals(this.teachers.getAll().get(index))) {
-                activity.setTeacher(new Teacher(id, fn, ln, title, email));
+            if (teachers.getTeacherById(activity.getTeacher()).equals(this.teachers.getAll().get(index))) {
+                activity.setTeacher(id);
             }
         }
         this.teachers.update(index, id, fn, ln, title, email);
     }
 
-    public boolean updateTeacherByID(int id, String fn, String ln, String title, String email) throws TeacherRepoException, TeacherException {
+    public boolean updateTeacherByID(int id, String fn, String ln, String title, String email) throws TeacherRepoException {
         for (Activity activity : this.activities.getAll()) {
-            if (activity.getTeacher().getId() == id) {
-                activity.setTeacher(new Teacher(id, fn, ln, title, email));
+            if (activity.getTeacher() == id) {
+                activity.setTeacher(id);
             }
         }
         return this.teachers.update(id, fn, ln, title, email);
@@ -218,6 +214,13 @@ public class Controller {
 
     public TeacherRepo getAllTeachers() {
         return this.teachers;
+    }
+
+    public void serializeTeachers(ArrayList<Teacher> teachers ){
+        this.binaryTeachers.Serialization(teachers, this.binaryTeachers.getFilepath());
+    }
+    public ArrayList<Teacher> deserializeTeacher(){
+        return this.binaryTeachers.deserialization(this.binaryTeachers.getFilepath());
     }
 
 }

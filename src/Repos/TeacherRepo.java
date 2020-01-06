@@ -105,6 +105,19 @@ public class TeacherRepo {
     }
 
     /*
+    RETURNS THE TEACHER HAVING THE GIVEN ID
+     */
+
+    public Teacher getTeacherById(int id) {
+        for (Teacher teacher : teachers) {
+            if (teacher.getId() == id) {
+                return teacher;
+            }
+        }
+        return null;
+    }
+
+    /*
     METHOD THAT RETURNS A LIST OF ALL TEACHERS FROM THE REPO
      */
 

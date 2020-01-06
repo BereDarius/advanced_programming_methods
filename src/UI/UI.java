@@ -4,6 +4,7 @@ import Controller.Controller;
 import Domain.*;
 import Exceptions.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,6 +14,79 @@ public class UI {
 
     public UI(Controller ctrl) {
         this.ctrl = ctrl;
+    }
+
+    private void serializeTeachers(){
+        ArrayList<Teacher> teachers = this.ctrl.getAllTeachers().getAll();
+        this.ctrl.serializeTeachers(teachers);
+    }
+
+    private void deserializeTeachers() throws IOException {
+        ArrayList<Teacher> teachers = this.ctrl.deserializeTeacher();
+        for(Teacher t: teachers){
+            System.out.println(t);
+            try {
+                this.ctrl.addTeacher(t);
+            }catch (TeacherRepoException ignored){
+
+            }
+        }
+    }
+
+    /*
+    METHODS FOR PRINTING ACTIVITIES, DISCIPLINES, FORMATIONS, ROOMS AND TEACHERS BETTER
+     */
+
+    private String activityStringById(int id) {
+        Activity activity = this.ctrl.getAllActivities().getActivityById(id);
+        return "ID: " + activity.getId() +
+                "\n\tDiscipline: " + disciplineStringById(activity.getDiscipline()) +
+                "\tActivity type: " + activity.getActivityType() +
+                "\n\tTeacher: " + teacherStringById(activity.getTeacher()) +
+                "\n\tRoom: " + roomStringByNumber(activity.getRoom()) + "\n";
+    }
+
+    private String disciplineStringById(int id) {
+        Discipline discipline = this.ctrl.getAllDisciplines().getDisciplineById(id);
+        return "ID: " + discipline.getId() +
+                "\n\tName: " + discipline.getName() +
+                "\n\tField: " + discipline.getField() + "\n";
+    }
+
+    private String formationStringById(int id) {
+        Formation formation = this.ctrl.getAllFormations().getFormationById(id);
+        StringBuilder result = new StringBuilder("ID: " + formation.getId() +
+                "\n\tName: " + formation.getName() + "\n\tSubgroup: ");
+        if (formation.getSubgroup() != null) {
+            result.append("Subgroup:\n\t" + formationStringById(formation.getSubgroup().getId())).append("\n\t");
+        }
+        result.append("Activities: \n\t");
+        for (int activity_id : formation.getActivities()) {
+            result.append(activityStringById(activity_id));
+            result.append("\n\t");
+        }
+        return result.toString();
+    }
+
+    private String roomStringByNumber(String num) {
+        Room room = this.ctrl.getAllRooms().getRoomByRoomNumber(num);
+        StringBuilder result = new StringBuilder(room.getRoomNumber() +
+                "\n\tAvailable seats: " + room.getAvailableSeats() +
+                "\n\tBuilding: " + room.getBuilding() +
+                "\n\tActivity types: ");
+        for (String s : room.getActivityTypes()) {
+            result.append(s + " ,");
+        }
+        return result.toString();
+    }
+
+    private String teacherStringById(int id) {
+        Teacher teacher = this.ctrl.getAllTeachers().getTeacherById(id);
+        return "ID: " + teacher.getId() +
+                "\n\tFirst name: " + teacher.getFirstName() +
+                "\n\tLast name: " + teacher.getLastName() +
+                "\n\tTitle: " + teacher.getTitle() +
+                "\n\tEmail: " + teacher.getEmail();
     }
 
     /*
@@ -72,7 +146,7 @@ public class UI {
 
     private void printAllActivities() {
         for (int i = 0; i < this.ctrl.getAllActivities().getSize(); ++i) {
-            System.out.println("[" + i + "] " + this.ctrl.getAllActivities().getAll().get(i));
+            System.out.println(("[" + i + "] " + activityStringById(ctrl.getAllActivities().getAll().get(i).getId())));
         }
     }
 
@@ -84,8 +158,8 @@ public class UI {
         System.out.println("Activity added successfully.");
     }
 
-    private Activity readActivity() throws ActivityException, DisciplineException, RoomException, TeacherException {
-        //discipline activity_type teacher room
+    private Activity readActivity() throws ActivityException, DisciplineException, RoomException, TeacherException, DisciplineRepoException, TeacherRepoException, RoomRepoException {
+        int id = readInt("Please enter the activity's ID: ");
         System.out.print("Would you like to choose a discipline from the repository for the activity?");
         String answer = readString("[Yes / No] ");
         int index;
@@ -97,6 +171,7 @@ public class UI {
             discipline = this.ctrl.getAllDisciplines().getAll().get(index);
         } else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n")) {
             discipline = readDiscipline();
+            this.ctrl.addDiscipline(discipline);
         } else {
             return null;
         }
@@ -111,6 +186,7 @@ public class UI {
             teacher = this.ctrl.getAllTeachers().getAll().get(index);
         } else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n")) {
             teacher = readTeacher();
+            this.ctrl.addTeacher(teacher);
         } else {
             return null;
         }
@@ -124,10 +200,11 @@ public class UI {
             room = this.ctrl.getAllRooms().getAll().get(index);
         } else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n")) {
             room = readRoom();
+            this.ctrl.addRoom(room);
         } else {
             return null;
         }
-        return new Activity(discipline, activity_type, teacher, room);
+        return new Activity(id, discipline.getId(), activity_type, teacher.getId(), room.getRoomNumber());
     }
 
     /*
@@ -182,9 +259,10 @@ public class UI {
     }
 
     private Discipline readDiscipline() throws DisciplineException {
+        int id = readInt("Please enter the discipline's ID: ");
         String name = readString("Please enter the disciplines's name: ");
         String field = readString("Please enter the disciplines's field: ");
-        return new Discipline(name, field);
+        return new Discipline(id, name, field);
     }
 
     /*
@@ -231,8 +309,9 @@ public class UI {
     }
 
     private Formation readFormation() throws FormationException {
+        int id = readInt("Please enter the formation's ID: ");
         String name = readString("Please enter the formation's name: ");
-        ArrayList<Activity> activities = new ArrayList<>();
+        ArrayList<Integer> activities = new ArrayList<>();
         System.out.print("Please choose an activity from the list below for the formation:\n");
         String answer;
         int index;
@@ -240,11 +319,11 @@ public class UI {
             printAllActivities();
             index = readInt("Choice: ");
             if (index < 0 || index >= this.ctrl.getAllActivities().getSize() ||
-                    activities.contains(this.ctrl.getAllActivities().getAll().get(index))) {
+                    activities.contains(this.ctrl.getAllActivities().getAll().get(index).getId())) {
                 System.out.println("Activity already added or index out of bounds...");
                 break;
             } else {
-                activities.add(this.ctrl.getAllActivities().getAll().get(index));
+                activities.add(this.ctrl.getAllActivities().getAll().get(index).getId());
                 System.out.println("Activity added!");
             }
             answer = readString("Do you wish to add another activity? [Yes / No] ");
@@ -253,7 +332,7 @@ public class UI {
             }
         }
         Formation subgroup = null;
-        Formation resultFormation = new Formation(name, activities);
+        Formation resultFormation = new Formation(id, name, activities);
         answer = readString("Does this formation have a subgroup? [Yes / No] ");
         if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n")) {
             return resultFormation;
@@ -390,7 +469,9 @@ public class UI {
                         "\t\t3. Remove a teacher from the repo (by index);\n" +
                         "\t\t4. Remove a teacher from the repo (by ID);\n" +
                         "\t\t5. Update a teacher from the repo (by index);\n" +
-                        "\t\t6. Update a teacher from the repo (by ID);\n"
+                        "\t\t6. Update a teacher from the repo (by ID);\n" +
+                        "\t\t7. Serialize teachers;\n" +
+                        "\t\t8. Deserialize teachers;"
         );
     }
 
@@ -441,7 +522,7 @@ public class UI {
     START METHOD
      */
 
-    public void start() throws ActivityException, RoomException, TeacherException, DisciplineException, ActivityRepoException, DisciplineRepoException, FormationException, FormationRepoException, RoomRepoException, TeacherRepoException {
+    public void start() throws ActivityException, RoomException, TeacherException, DisciplineException, ActivityRepoException, DisciplineRepoException, FormationException, FormationRepoException, RoomRepoException, TeacherRepoException, IOException {
         printMenu();
         //variables used for reading some values
         int id;
@@ -456,8 +537,8 @@ public class UI {
         String field;
         int index;
         Formation subgroup = null;
-        ArrayList<Activity> addActivities = new ArrayList<>();
-        ArrayList<Activity> removeActivities = new ArrayList<>();
+        ArrayList<Integer> addActivities = new ArrayList<>();
+        ArrayList<Integer> removeActivities = new ArrayList<>();
         ArrayList<String> activities = new ArrayList<>();
         String activity_type;
         ArrayList<String> possible_activities = new ArrayList<>();
@@ -525,27 +606,29 @@ public class UI {
                                 break;
                             case 3:
                                 index = readInt("Please enter the index at which you want to remove the discipline: ");
-                                if (this.ctrl.removeDiscipline(this.ctrl.getAllDisciplines().getAll().get(index))) {
+                                if (this.ctrl.removeDiscipline(index)) {
                                     printRemoveDiscipline();
                                 }
                                 break;
                             case 4:
-                                name = readString("Please enter the discipline's name: ");
-                                if (this.ctrl.removeDisciplineByName(name)) {
+                                id = readInt("Please enter the ID of the discipline you wish to delete: ");
+                                if (this.ctrl.removeDisciplineById(id)) {
                                     printRemoveDiscipline();
                                 }
                                 break;
                             case 5:
                                 index = readInt("Please enter the index at which you want to update the discipline: ");
+                                id = readInt("Please enter the discipline's new ID: ");
                                 name = readString("Please enter the discipline's new name: ");
                                 field = readString("Please enter the discipline's new filed: ");
-                                this.ctrl.updateDiscipline(index, name, field);
+                                this.ctrl.updateDiscipline(index, id, name, field);
                                 printUpdateDiscipline();
                                 break;
                             case 6:
+                                id = readInt("Please enter the ID of the discipline which you want to update: ");
                                 name = readString("Please enter the name of the discipline you wish to update: ");
                                 field = readString("Please enter the discipline's new filed: ");
-                                if (this.ctrl.updateDisciplineByName(name, field)) {
+                                if (this.ctrl.updateDisciplineById(id, name, field)) {
                                     printUpdateDiscipline();
                                 }
                                 break;
@@ -575,6 +658,7 @@ public class UI {
                                 break;
                             case 3:
                                 index = readInt("Please enter the index of the formation: ");
+                                id = readInt("Please enter the formation's new ID: ");
                                 name = readString("Please enter the formation's new name: ");
                                 answer = readString("Do you wish to add activities to the formation?\n" +
                                         "(The activity will be added to the activities repo as well) [Yes / No] ");
@@ -582,7 +666,7 @@ public class UI {
                                     while (!answer.toLowerCase().equals("no") && !answer.toLowerCase().equals("n")) {
                                         answer = readString("Add activity? [Yes / No] ");
                                         if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y")) {
-                                            addActivities.add(readActivity());
+                                            addActivities.add(readActivity().getId());
                                         }
                                     }
                                 }
@@ -591,7 +675,7 @@ public class UI {
                                     while (!answer.toLowerCase().equals("no") && !answer.toLowerCase().equals("n")) {
                                         answer = readString("Remove activity? [Yes / No] ");
                                         if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y")) {
-                                            removeActivities.add(readActivity());
+                                            removeActivities.add(readActivity().getId());
                                         }
                                     }
                                 }
@@ -607,12 +691,13 @@ public class UI {
                                         subgroup = this.ctrl.getAllFormations().getAll().get(index);
                                     }
                                 }
-                                this.ctrl.updateFormation(this.ctrl.getAllFormations().getAll().get(index), name, addActivities, removeActivities, subgroup);
+                                this.ctrl.updateFormation(id, this.ctrl.getAllFormations().getAll().get(index), name, addActivities, removeActivities, subgroup);
                                 printUpdateFormation();
                                 addActivities.clear();
                                 removeActivities.clear();
                                 break;
                             case 4:
+                                id = readInt("Please enter the ID of the formation which you want to update: ");
                                 name = readString("Please enter the formation's name: ");
                                 answer = readString("Do you wish to add activities to the formation?\n" +
                                         "(The activity will be added to the activities repo as well) [Yes / No] ");
@@ -620,7 +705,7 @@ public class UI {
                                     while (!answer.toLowerCase().equals("no") && !answer.toLowerCase().equals("n")) {
                                         answer = readString("Add activity? [Yes / No] ");
                                         if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y")) {
-                                            addActivities.add(readActivity());
+                                            addActivities.add(readActivity().getId());
                                         }
                                     }
                                 }
@@ -629,7 +714,7 @@ public class UI {
                                     while (!answer.toLowerCase().equals("no") && !answer.toLowerCase().equals("n")) {
                                         answer = readString("Remove activity? [Yes / No] ");
                                         if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y")) {
-                                            removeActivities.add(readActivity());
+                                            removeActivities.add(readActivity().getId());
                                         }
                                     }
                                 }
@@ -637,7 +722,7 @@ public class UI {
                                 if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y")) {
                                     subgroup = readFormation();
                                 }
-                                this.ctrl.updateFormationByName(name, addActivities, removeActivities, subgroup);
+                                this.ctrl.updateFormationByName(id, name, addActivities, removeActivities, subgroup);
                                 printUpdateFormation();
                                 addActivities.clear();
                                 removeActivities.clear();
@@ -817,6 +902,12 @@ public class UI {
                                 if (this.ctrl.updateTeacherByID(id, fn, ln, title, email)) {
                                     printUpdateTeacher();
                                 }
+                                break;
+                            case 7:
+                                serializeTeachers();
+                                break;
+                            case 8:
+                                deserializeTeachers();
                                 break;
                             default:
                                 System.out.println("Please enter a valid command...");

@@ -3,6 +3,7 @@ package Domain;
 import Exceptions.DisciplineException;
 
 public class Discipline {
+    private int id;
     private String name;
     private String field;
 
@@ -11,7 +12,12 @@ public class Discipline {
     CONSTRUCTOR
      */
 
-    public Discipline(String name, String field) throws DisciplineException {
+    public Discipline(int id, String name, String field) throws DisciplineException {
+        if (id > 0) {
+            this.id = id;
+        } else {
+            throw new DisciplineException("The id must be a positive number...");
+        }
         if (name != null && !name.equals("")) {
             this.name = name;
         } else {
@@ -28,6 +34,10 @@ public class Discipline {
     GETTERS AND SETTERS
      */
 
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -38,6 +48,10 @@ public class Discipline {
 
     public String getField() {
         return field;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setField(String field) {
