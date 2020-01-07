@@ -3,47 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e12f92e0-75cf-4d4a-b6ba-54fe6233e1bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab1/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Domain/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Domain/Activity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Domain/Discipline.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Domain/Discipline.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Domain/Formation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Domain/Formation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Repos/ActivityRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Repos/ActivityRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Repos/DisciplineRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Repos/DisciplineRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Repos/FormationRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Repos/FormationRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Repos/RoomRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Repos/RoomRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Repos/TeacherRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Repos/TeacherRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/ActivityRepoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/ActivityTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/DisciplineRepoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/DisciplineTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/FormationRepoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/FormationTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/RoomRepoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/RoomTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/TeacherRepoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Tests/TeacherTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Domain/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Domain/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Domain/Teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/Domain/Teacher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab1/UI/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/UI/UI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab1/start.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab1/start.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Discipline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Discipline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Formation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Formation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repos/ActivityRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repos/ActivityRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repos/DisciplineRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repos/DisciplineRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Teacher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repos/FormationRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repos/FormationRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repos/RoomRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repos/RoomRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repos/TeacherRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repos/TeacherRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/ActivityRepoTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/ActivityTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DisciplineRepoTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DisciplineTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/FormationRepoTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/FormationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/RoomRepoTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/RoomTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TeacherRepoTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TeacherTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/start.java" afterDir="false" />
     </list>
@@ -83,6 +52,10 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/sqlite-jdbc-3.30.1.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
@@ -95,6 +68,9 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tubor\IdeaProjects\Lab1" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -205,8 +181,18 @@
       <option name="project" value="LOCAL" />
       <updated>1572900529731</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Finished text and binary files">
+      <created>1578346169335</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1578346169335</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.bin" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -223,7 +209,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished tests for all classes from the Domain package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished tests for all classes from the Domain package" />
+    <MESSAGE value="Finished text and binary files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished text and binary files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Lab1$TeacherTest.ic" NAME="TeacherTest Coverage Results" MODIFIED="1572900356717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

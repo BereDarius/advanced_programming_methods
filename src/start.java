@@ -5,9 +5,7 @@ import Files.TextFileRepo;
 import Repos.*;
 import UI.UI;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class start {
     public static void main(String[] args) throws
@@ -27,13 +25,29 @@ public class start {
         RoomRepo rr = new RoomRepo();
         ActivityRepo ar = new ActivityRepo();
 
-        Controller ctrl = new Controller(ar, dr, fr, rr, tr);
+        BinaryRepo<Teacher> binaryTeachers = new BinaryRepo<>("BinaryTeachers.ser");
+
+        DBrepo database = new DBrepo();
+
+        Controller ctrl = new Controller(ar, dr, fr, rr, tr, binaryTeachers, database);
+
+        ctrl.openDBConnection();
+
+        for (Activity a: ctrl.getAllActivities().getAll()) {
+            ctrl.addActivityDB(a.getId(), a.getDiscipline(), a.getActivityType(), a.getTeacher(), a.getRoom());
+        }
+
+        for (Teacher t: ctrl.getAllTeachers().getAll()) {
+            ctrl.addTeacherDB(t.getId(), t.getFirstName(), t.getLastName(), t.getTitle(), t.getEmail());
+        }
 
         UI ui = new UI(ctrl);
 
         textFileRepo.populateRepos(ar,dr,fr,rr,tr);
 
         ui.start();
+
+        ctrl.closeDBConnection();
 
         textFileRepo.clearFile();
 

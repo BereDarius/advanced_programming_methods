@@ -1,6 +1,5 @@
 package Repos;
 
-import Domain.Activity;
 import Domain.Formation;
 import Exceptions.FormationRepoException;
 

@@ -15,20 +15,50 @@ public class Controller {
     private RoomRepo rooms;
     private TeacherRepo teachers;
     private BinaryRepo<Teacher> binaryTeachers;
+    private DBrepo database;
 
-    public Controller(ActivityRepo activities, DisciplineRepo disciplines, FormationRepo formations, RoomRepo rooms, TeacherRepo teachers) {
+    public Controller(ActivityRepo activities, DisciplineRepo disciplines, FormationRepo formations, RoomRepo rooms, TeacherRepo teachers, BinaryRepo<Teacher> binaryTeachers, DBrepo database) {
         this.activities = activities;
         this.disciplines = disciplines;
         this.formations = formations;
         this.rooms = rooms;
         this.teachers = teachers;
+        this.binaryTeachers = binaryTeachers;
+        this.database = database;
+    }
+
+    public void openDBConnection() {
+        this.database.openConnection();
+    }
+
+    public void closeDBConnection() {
+        this.database.closeConnection();
+    }
+
+    public void addTeacherDB(int id, String fname, String lname, String title, String email) throws TeacherException {
+        Teacher t = new Teacher( id, fname, lname, title, email);
+        this.database.addTeacher(t);
+    }
+
+    public ArrayList<Teacher> readDatabaseTeachers(){
+        return this.database.getTeachers();
+    }
+
+    public void addActivityDB(int id, int discipline, String type, int teacher, String room) throws ActivityException {
+        Activity a = new Activity(id, discipline, type, teacher, room);
+        this.database.addActivity(a);
+    }
+
+    public ArrayList<Activity> readDatabaseActivities() {
+        return this.database.getActivities();
     }
 
     /*
     Activity Repo Methods
      */
 
-    public boolean addActivity(Activity a) throws ActivityRepoException {
+    public boolean addActivity(Activity a) throws ActivityRepoException, ActivityException {
+        addActivityDB(a.getId(), a.getDiscipline(), a.getActivityType(), a.getTeacher(), a.getRoom());
         return this.activities.add(a);
     }
 
@@ -79,7 +109,7 @@ public class Controller {
         this.disciplines.update(index, id, name, field);
     }
 
-    public boolean updateDisciplineById(int id, String name, String field) throws DisciplineException, DisciplineRepoException {
+    public boolean updateDisciplineById(int id, String name, String field) throws DisciplineRepoException {
         return this.disciplines.update(id, name, field);
     }
 
@@ -172,7 +202,8 @@ public class Controller {
     Teacher Repo Methods
      */
 
-    public boolean addTeacher(Teacher t) throws TeacherRepoException {
+    public boolean addTeacher(Teacher t) throws TeacherRepoException, TeacherException {
+        addTeacherDB(t.getId(), t.getFirstName(), t.getLastName(), t.getTitle(), t.getEmail());
         return this.teachers.add(t);
     }
 

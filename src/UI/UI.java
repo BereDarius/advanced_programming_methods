@@ -16,6 +16,18 @@ public class UI {
         this.ctrl = ctrl;
     }
 
+    private void readTeachersDB(){
+        ArrayList<Teacher> teachers = this.ctrl.readDatabaseTeachers();
+        for(Teacher t: teachers)
+            System.out.println(t);
+    }
+
+    private void readActivitiesDB() {
+        ArrayList<Activity> activities = this.ctrl.readDatabaseActivities();
+        for(Activity a: activities)
+            System.out.println(a);
+    }
+
     private void serializeTeachers(){
         ArrayList<Teacher> teachers = this.ctrl.getAllTeachers().getAll();
         this.ctrl.serializeTeachers(teachers);
@@ -27,7 +39,7 @@ public class UI {
             System.out.println(t);
             try {
                 this.ctrl.addTeacher(t);
-            }catch (TeacherRepoException ignored){
+            }catch (TeacherRepoException | TeacherException ignored){
 
             }
         }
@@ -53,6 +65,7 @@ public class UI {
                 "\n\tField: " + discipline.getField() + "\n";
     }
 
+    /*
     private String formationStringById(int id) {
         Formation formation = this.ctrl.getAllFormations().getFormationById(id);
         StringBuilder result = new StringBuilder("ID: " + formation.getId() +
@@ -67,6 +80,7 @@ public class UI {
         }
         return result.toString();
     }
+     */
 
     private String roomStringByNumber(String num) {
         Room room = this.ctrl.getAllRooms().getRoomByRoomNumber(num);
@@ -75,7 +89,7 @@ public class UI {
                 "\n\tBuilding: " + room.getBuilding() +
                 "\n\tActivity types: ");
         for (String s : room.getActivityTypes()) {
-            result.append(s + " ,");
+            result.append(s).append(" ,");
         }
         return result.toString();
     }
@@ -136,7 +150,8 @@ public class UI {
                         "\t\t1. Get all activities;\n" +
                         "\t\t2. Add activity to the activities repo;\n" +
                         "\t\t3. Insert an activity (at an index);\n" +
-                        "\t\t4. Remove an activity from the repo (by index);\n"
+                        "\t\t4. Remove an activity from the repo (by index);\n" +
+                        "\t\t5. Read activities from the database;\n"
         );
     }
 
@@ -158,7 +173,7 @@ public class UI {
         System.out.println("Activity added successfully.");
     }
 
-    private Activity readActivity() throws ActivityException, DisciplineException, RoomException, TeacherException, DisciplineRepoException, TeacherRepoException, RoomRepoException {
+    private Activity readActivity() throws ActivityException, DisciplineException, RoomException, TeacherException, DisciplineRepoException, TeacherRepoException, RoomRepoException, IOException {
         int id = readInt("Please enter the activity's ID: ");
         System.out.print("Would you like to choose a discipline from the repository for the activity?");
         String answer = readString("[Yes / No] ");
@@ -471,7 +486,8 @@ public class UI {
                         "\t\t5. Update a teacher from the repo (by index);\n" +
                         "\t\t6. Update a teacher from the repo (by ID);\n" +
                         "\t\t7. Serialize teachers;\n" +
-                        "\t\t8. Deserialize teachers;"
+                        "\t\t8. Deserialize teachers;" +
+                        "\t\t9. Read teachers from database;"
         );
     }
 
@@ -579,6 +595,9 @@ public class UI {
                                 if (this.ctrl.removeActivity(this.ctrl.getAllActivities().getAll().get(index))) {
                                     printRemoveActivity();
                                 }
+                                break;
+                            case 5:
+                                readActivitiesDB();
                                 break;
                             default:
                                 System.out.println("Please enter a valid command...");
@@ -908,6 +927,9 @@ public class UI {
                                 break;
                             case 8:
                                 deserializeTeachers();
+                                break;
+                            case 9:
+                                readTeachersDB();
                                 break;
                             default:
                                 System.out.println("Please enter a valid command...");

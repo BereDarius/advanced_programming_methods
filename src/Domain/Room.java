@@ -82,8 +82,7 @@ public class Room {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("Room:\n" + "room number: " + roomNumber + ", availableSeats: " + availableSeats + ", possible activities: " + activity_types.toString());
-        return result.toString();
+        return "Room:\n" + "room number: " + roomNumber + ", availableSeats: " + availableSeats + ", possible activities: " + activity_types.toString();
     }
 
     @Override

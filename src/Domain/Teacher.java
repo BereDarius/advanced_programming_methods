@@ -2,7 +2,9 @@ package Domain;
 
 import Exceptions.TeacherException;
 
-public class Teacher {
+import java.io.Serializable;
+
+public class Teacher implements Serializable {
     private int id;
     private String firstName;
     private String lastName;

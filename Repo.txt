@@ -1,0 +1,36 @@
+activity 1 2 laboratory 2 A311
+activity 2 4 laboratory 3 C101
+activity 3 3 laboratory 2 C531
+activity 4 2 laboratory 1 A320
+activity 5 2 seminar 5 6/II
+activity 6 1 lecture 3 A311
+activity 7 5 seminar 1 C101
+activity 8 1 laboratory 5 A320
+activity 9 4 laboratory 2 A311
+activity 10 3 lecture 5 6/II
+activity 11 1 seminar 4 A320
+activity 12 5 laboratory 2 C531
+activity 13 2 lecture 1 C101
+activity 14 2 seminar 2 A311
+activity 15 4 laboratory 4 A320
+discipline 1 Complex_Informatics Computer_Science
+discipline 2 Complex_Analysis Mathematics
+discipline 3 MAP Computer_Science
+discipline 4 Web_Development Computer_Science
+discipline 5 Differential_Equations Mathematics
+formation 1 821 [9,11]
+formation 2 812 [6,4,6,2,9]
+formation 3 811 [9,18,5,3,9]
+formation 4 822 [9,8,10,3,9]
+formation 5 810 [12,2,8,5,3]
+room C101 100 FSEGA [laboratory,lecture]
+room 6/II 100 Centru [seminar,lecture]
+room A320 100 Avram_Iancu [laboratory,seminar]
+room A311 100 Avram_Iancu [laboratory,lecture]
+room C531 100 FSEGA [seminar,lecture]
+teacher 1 Pop Andrei dr popandrei@cs.ubbcluj.ro
+teacher 2 Bere Darius prof darius.bogdan3080@gmail.com
+teacher 3 Matthew Smith prof matthew@smith.com
+teacher 4 Brian Griffin dr brian@griffin.ro
+teacher 5 Andrew Simpson prof simpson@simpson.ro
+teacher 6 Ion Ioan prof ion@ioan.ion
